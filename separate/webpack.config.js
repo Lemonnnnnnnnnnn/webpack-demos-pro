@@ -11,7 +11,4 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin()
   ],
-  devServer: {
-    static: './dist', // 从什么位置查找文件
-  },
 };
