@@ -8,14 +8,18 @@
 
 关于file-loader: 解析```import/require()```并转化为url地址输出到output文件夹
 
-**[mimetype]**:
-默认基于[mime-types](https://github.com/jshttp/mime-types)，根据文件名称判断文件类型
--   如果设为false，默认文件类型为`text/plain;charset=US-ASCII`
--   如果为字符串，则表示以什么类型来读取文件，如`mimetype: 'image/png',`
-
 **encoding**:
 默认为**base64**编码
 -    支持参数：["utf8","utf16le","latin1","base64","hex","ascii","binary","ucs2"].
+
+**fallback**:
+默认使用**file-loader**， 当limit大于指定数值后选用什么加载器
+
+
+**[mimetype]**: 媒体类型，用来表示文档、文件或字节流的性质和格式
+默认基于[mime-types](https://github.com/jshttp/mime-types)，如果未指定，则将使用文件扩展名来查找对应的 MIME 类型。
+-   如果设为false，默认文件类型为`text/plain;charset=US-ASCII`
+-   如果为字符串，则表示以什么类型来读取文件，如`mimetype: 'image/png',`
 
 **generator**:
 如何产生最终的url名
@@ -32,11 +36,12 @@ generator: (content, mimetype, encoding, resourcePath) => {
               },
 ```
 
-**fallback**:
-默认使用**file-loader**， 当limit大于指定数值后选用什么加载器
-
 **esModule**
 默认使用esModule,如果要采用`CommonJS module`，将值设为false
+
+
+### 静态资源名：Data URLs
+Data URLs 由四个部分组成：前缀(data:)、指示数据类型的MIME类型、如果非文本则为可选的base64标记、数据本身：
 
 ### 关于svg
 不要用base64编码，有更有效的编码
