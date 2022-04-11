@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
 
 module.exports = {
+  mode : 'development',
   entry: './main.js',
   output: {
     filename: 'bundle.js'
@@ -13,10 +15,10 @@ module.exports = {
       },
     ]
   },
-
+  plugins:[
+    new HtmlWebpackPlugin({
+      template : path.join(__dirname , 'index.html')
+    })
+  ]
 };
 
-/**
- * css-loader: 转换css文件
- * style-loader : 插入<style>标签到html页面中
- */

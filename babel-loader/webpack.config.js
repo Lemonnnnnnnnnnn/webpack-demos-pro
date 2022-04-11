@@ -24,7 +24,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'index.html'), // 指定项目的html文件路径
-      filename: 'index.html' // 指定打包出的html文件的名称
     }),
   ],
 };
