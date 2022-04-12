@@ -8,9 +8,3 @@ webpack-dev-server 在编译之后不会写入到任何输出文件。而是将 
 
 **启动命令：** webpack serve --open || webpack-dev-server
 
-# webpack-bundle-analyzer
-可视化工具
-[参考链接](https://github.com/webpack-contrib/webpack-bundle-analyzer#size-definitions)
-
-# uglifyjs-webpack-plugin
-缩小打包大小

@@ -56,6 +56,9 @@ module.exports = {
     ]
   },
   plugins,
+  cache: {
+    type: 'filesystem',
+  },
   optimization : {
     minimizer : [new UglifyJsPlugin({
       parallel :true, // 多进程
