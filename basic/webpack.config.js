@@ -6,7 +6,6 @@ module.exports = {
   output: {
     filename: 'bundle.js'
   },
-  exclude: /node_modules/,
   plugins : [
     new HtmlWebpackPlugin(),
   ],

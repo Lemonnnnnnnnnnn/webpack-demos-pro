@@ -11,7 +11,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/, // 编译对象
-        exclude: /node_modules/, // 排除对象
+        exclude: /node_modules/, // 排除对象,需要配合test使用
         use: {
           loader: 'babel-loader', // 加载器：babel-loader
           options: {
