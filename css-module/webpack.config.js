@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
-var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const TARGET = process.env.npm_lifecycle_event;
 const plugins = [
@@ -59,9 +58,4 @@ module.exports = {
   cache: {
     type: 'filesystem',
   },
-  optimization : {
-    minimizer : [new UglifyJsPlugin({
-      parallel :true, // 多进程
-    })]
-  }
 };

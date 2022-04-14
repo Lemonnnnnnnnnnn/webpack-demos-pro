@@ -1,10 +1,14 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require('path')
 
-const TARGET = process.env.npm_lifecycle_event;
 const plugins = [
-  new HtmlWebpackPlugin(),
-  new CleanWebpackPlugin(),
+  new HtmlWebpackPlugin({
+    template : path.join(__dirname , 'index.html')
+  }),
+  new CleanWebpackPlugin({
+    path: path.join(__dirname, 'dist')
+  }),
 ]
 
 // 如果输入指定命令，展示可视化打包页面
@@ -20,9 +24,30 @@ const plugins = [
 // }
 
 module.exports = {
-  entry: './main.js',
+  mode : 'development',
+  entry: './main.jsx',
   output: {
     filename: '[name].js'
   },
-  plugins ,
+  plugins,
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      '@': path.join(__dirname, './src')
+    }
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js[x]?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'] // 插件 @babel/preset-env  @babel/preset-react
+          }
+        }
+      },
+    ]
+  },
 };

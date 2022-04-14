@@ -6,3 +6,10 @@ DefinePlugin: DefinePlugin 允许在 **编译时** 将你代码中的变量替�
 ### NODE_ENV
 1. 是约定俗成的属性，process.env中不存在该属性
 2. mode 和 NODE_ENV是不同的东西，一个在配置文件中写，一个在脚本中设置
+
+### mode
+-   development : 
+会将 `process.env.NODE_ENV` 的值设为 development。启用 `NamedChunksPlugin` 和 `NamedModulesPlugin`。
+
+-   production :
+会将 process.env.NODE_ENV 的值设为 production。启用 `FlagDependencyUsagePlugin`, `FlagIncludedChunksPlugin`, `ModuleConcatenationPlugin`, `NoEmitOnErrorsPlugin`, `OccurrenceOrderPlugin`, `SideEffectsFlagPlugin` 和 `UglifyJsPlugin`。
