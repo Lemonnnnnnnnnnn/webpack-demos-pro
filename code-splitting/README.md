@@ -29,3 +29,5 @@ const comp = () => (
 import react from 'react'
 ```
 **则babel无法识别**。
+
+

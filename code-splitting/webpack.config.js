@@ -1,13 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path')
 
 const plugins = [
   new HtmlWebpackPlugin({
     template : path.join(__dirname , 'index.html')
-  }),
-  new CleanWebpackPlugin({
-    path: path.join(__dirname, 'dist')
   }),
 ]
 
